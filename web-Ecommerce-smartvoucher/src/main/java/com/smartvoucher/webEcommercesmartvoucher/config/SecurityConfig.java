@@ -169,6 +169,7 @@ public class SecurityConfig {
                     .antMatchers(HttpMethod.GET, "/warehouse/api/{id}").permitAll()
                     .antMatchers(HttpMethod.GET, "/warehouse/{fileName}").permitAll()
                     .antMatchers(HttpMethod.GET, "/warehouse/by-label-id/{id}").permitAll()
+                    .antMatchers(HttpMethod.GET,"/warehouse/api/search_name").permitAll()
                     .antMatchers(HttpMethod.GET,"/warehouse/api/getAll").hasRole("ADMIN")
                     .antMatchers(HttpMethod.GET,"/warehouse/api/search").hasRole("ADMIN")
                     .antMatchers(HttpMethod.POST,"/warehouse/api/upload/banner").hasRole("ADMIN")
