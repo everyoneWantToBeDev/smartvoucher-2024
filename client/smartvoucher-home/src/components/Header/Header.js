@@ -29,9 +29,9 @@ import { logoutUser } from "../../services/AccountServices";
 import { toast } from "react-toastify";
 import Account from "../Security/Account";
 import { selectIdCarts } from "../../Redux/data/CartSlice";
-import Store from "../../Redux/Store";
 import debounce from "lodash.debounce";
 import { searchAllByWarehouseName } from '../../services/WarehouseServices';
+import { reset } from "../../Redux/data/UserSlice";
 
 const Header = () => {
 
@@ -61,7 +61,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     dispatch(logOut());
-    Store.dispatch({ type: "RESET" });
+    dispatch(reset());
     await logoutUser(refreshToken).then((rs) => {
       if (rs) {
         toast.success(rs.message);
@@ -99,7 +99,7 @@ const Header = () => {
               <NavLink to="/" className="form-auth">
                 <i class="fa-solid fa-chevron-left"></i>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>dsd</span>
+                <span></span>
               </NavLink>
             </Nav>
             <div className="d-flex">
@@ -131,9 +131,10 @@ const Header = () => {
       <Navbar expand="sm" className="bg-body-tertiary custom-header">
         <Container>
           <div className="LH">
-            <Button
+            <button
+              className="btn btn-custom"
               onClick={() => setIsShowMenu(true)}
-            ><i class="fa-solid fa-bars"></i></Button>
+            ><i class="fa-solid fa-bars"></i></button>
           </div>
           <Navbar.Collapse className="oh d-lg-flex justify-content-between">
             <Navbar.Brand>
@@ -243,35 +244,35 @@ const Header = () => {
                           >Search</Button>
                         </Form>
                         <div>
-                            <Dropdown.Menu show={toggle}>
-                              {
-                                listKeyword ? listKeyword?.map((item, key) => {
-                                  return (
-                                    <Row xs={1} md='auto'>
-                                      <Col>
-                                        <Dropdown.Item>
-                                          <NavLink
-                                            key={key}
-                                            onClick={() => {
-                                              setToggle(false);
-                                              setIsShowMenu(false);
-                                              setListKeyword([]);
-                                            }}
-                                            className="KOTO"
-                                            to={"/Product/Detail/" + item?.id}>
-                                            <h6>
-                                              {item?.keyWord}
-                                            </h6>
-                                          </NavLink>
-                                        </Dropdown.Item>
-                                      </Col>
-                                    </Row>
-                                  )
-                                })
-                                  : "No data"
-                              }
-                            </Dropdown.Menu>
-                          </div>
+                          <Dropdown.Menu show={toggle}>
+                            {
+                              listKeyword ? listKeyword?.map((item, key) => {
+                                return (
+                                  <Row xs={1} md='auto'>
+                                    <Col>
+                                      <Dropdown.Item>
+                                        <NavLink
+                                          key={key}
+                                          onClick={() => {
+                                            setToggle(false);
+                                            setIsShowMenu(false);
+                                            setListKeyword([]);
+                                          }}
+                                          className="KOTO"
+                                          to={"/Product/Detail/" + item?.id}>
+                                          <h6>
+                                            {item?.keyWord}
+                                          </h6>
+                                        </NavLink>
+                                      </Dropdown.Item>
+                                    </Col>
+                                  </Row>
+                                )
+                              })
+                                : "No data"
+                            }
+                          </Dropdown.Menu>
+                        </div>
                       </Nav>
                     </Col>
                     <Col>
@@ -763,7 +764,7 @@ const Header = () => {
             </div>
             <div className="d-flex">
               <Nav>
-                <NavLink to="/" className="form-sub pe-3">
+                <NavLink to="/Checkin" className="form-sub pe-3">
                   <i class="fa-solid fa-mobile-screen-button"></i>
                   Checkin !
                 </NavLink>

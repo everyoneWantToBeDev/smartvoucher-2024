@@ -100,4 +100,7 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "idUser")
     private List<CommentEntity> commentEntities;
+
+    @OneToMany(mappedBy = "idUser")
+    private List<WishListEntity> wishListEntities;
 }

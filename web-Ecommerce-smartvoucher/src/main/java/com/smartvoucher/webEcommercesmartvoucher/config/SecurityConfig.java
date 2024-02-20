@@ -180,6 +180,12 @@ public class SecurityConfig {
                     .antMatchers(HttpMethod.PUT,"/warehouse/api/{id}").hasRole("ADMIN")
                     .antMatchers(HttpMethod.DELETE,"/warehouse/api/{id}").hasRole("ADMIN")
                     //warehouse
+                    //wishlist
+                    .antMatchers(HttpMethod.GET, "/wishlist/api/get_all").hasRole("USER")
+                    .antMatchers(HttpMethod.GET, "/wishlist/api/get").hasRole("USER")
+                    .antMatchers(HttpMethod.POST, "/wishlist/api/insert").hasRole("USER")
+                    .antMatchers(HttpMethod.DELETE, "/wishlist/api/delete").hasRole("USER")
+                    //wishlist
                     //warehouse_store
                     .antMatchers(HttpMethod.GET, "/warehouse_merchant").permitAll()
                     .antMatchers(HttpMethod.POST,"/warehouse_merchant/api/insert").hasRole("ADMIN")

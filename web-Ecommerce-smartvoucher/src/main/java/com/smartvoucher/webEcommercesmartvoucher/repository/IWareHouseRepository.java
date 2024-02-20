@@ -19,7 +19,6 @@ public interface IWareHouseRepository extends JpaRepository<WareHouseEntity, Lon
     List<WareHouseEntity> findAllByLabel (@Param("id") int id);
     List<WareHouseEntity> searchAllByNameContainingIgnoreCase(String name);
     List<WareHouseEntity>findAllByCategoryName(String name, Pageable pageable);
-
 //    @Query("SELECT w FROM warehouse w JOIN label la ON w.label.id = la.id" +
 //            " WHERE w.label.id = :id AND w.status = 1" +
 //            " ORDER BY ?#{#pageable}")

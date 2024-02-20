@@ -3,7 +3,7 @@ import Store from "../Redux/Store";
 
 const Http = axios.create({
   baseURL: `http://localhost:8082`,
-  // baseURL: `https://e93d-183-80-67-184.ngrok-free.app`,
+  //baseURL: `https://3588-2405-4802-801d-3370-6cc4-a175-8002-4864.ngrok-free.app`,
 });
 
 Http.interceptors.request.use(

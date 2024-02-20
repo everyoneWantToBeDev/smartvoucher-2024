@@ -39,7 +39,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.security.cert.CertificateException;
 import java.util.*;
 
 @Slf4j
@@ -129,7 +128,7 @@ public class AccountService implements IAccountService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public RefreshTokenDTO refreshToken(HttpServletRequest request, HttpServletResponse response) throws CertificateException {
+    public RefreshTokenDTO refreshToken(HttpServletRequest request, HttpServletResponse response){
         final String headerValue = request.getHeader("Authorization");
         String accessToken = "";
         if (headerValue != null && headerValue.startsWith("Bearer ")){

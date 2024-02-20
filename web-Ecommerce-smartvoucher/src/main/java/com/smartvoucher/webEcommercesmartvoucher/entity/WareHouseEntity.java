@@ -94,4 +94,7 @@ public class WareHouseEntity{
 
     @OneToMany(mappedBy = "idWarehouse")
     private List<CommentEntity> commentEntities;
+
+    @OneToMany(mappedBy = "idWarehouse")
+    private List<WishListEntity> wishListEntities;
 }

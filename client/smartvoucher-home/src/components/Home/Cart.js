@@ -178,7 +178,7 @@ const Cart = () => {
                         {cart.map((item, key) => {
                           return (
                             <Row xs={1} md='auto' className="mb-3 pb-3 justify-content-md-between" key={key}>
-                              <Col md='auto'>
+                              <Col>
                                 <div className="pe-2 MhR">
                                   <img
                                     alt=""
@@ -186,7 +186,7 @@ const Cart = () => {
                                   />
                                 </div>
                               </Col>
-                              <Col md={7}>
+                              <Col >
                                 <div className="d-flex flex-column justify-content-between IU">
                                   <div className="d-flex justify-content-between tranfer-display">
                                     <div className="mg">
